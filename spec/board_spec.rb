@@ -23,4 +23,8 @@ describe Board do
     expect(@board.show[-1]).to eq(cell)
     expect(@board.show[-3]).to eq(cell)
   end
+
+  it "Board may be shown" do
+    expect(@board.show[0]).to eq(cell)
+  end
 end
