@@ -3,7 +3,7 @@ class Board
   attr_reader :show
 
   def initialize(cell_Klass)
-    @show = Array.new(9){cell_Klass.new}
+    @show = Array.new(3){Array.new(3,cell_Klass.new)}
   end
 
   def board_place_mark(column, row, input)

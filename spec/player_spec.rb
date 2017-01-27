@@ -10,6 +10,8 @@ describe Player do
   it "A new instance of Player is intiialized with a name" do
     expect(@player.name).to eq("player who must not be named")
   end
+
+
 end
 
 

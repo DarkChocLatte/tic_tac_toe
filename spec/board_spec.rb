@@ -15,16 +15,12 @@ describe Board do
   end
 
   it "A new instance of board is initialized with 9 boxes" do
-    expect(@board.show.length).to eq(9)
+    expect(@board.show.length).to eq(3)
   end
 
   it "A new instance of board is intiialized with a cell" do
-    expect(@board.show[0]).to eq(cell)
-    expect(@board.show[-1]).to eq(cell)
-    expect(@board.show[-3]).to eq(cell)
-  end
-
-  it "Board may be shown" do
-    expect(@board.show[0]).to eq(cell)
+    expect(@board.show[0][0]).to eq(cell)
+    expect(@board.show[-1][-1]).to eq(cell)
+    expect(@board.show[-2][1]).to eq(cell)
   end
 end
