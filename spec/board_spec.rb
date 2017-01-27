@@ -23,4 +23,11 @@ describe Board do
     expect(@board.show[-1][-1]).to eq(cell)
     expect(@board.show[-2][1]).to eq(cell)
   end
+
+  it "A board should be able to place a mark" do
+    allow(cell).to receive(:state).and_return('')
+    allow(cell).to receive(:crossed).and_return('X')
+
+    expect(@board.board_place_mark(2, 3, 'X'))
+  end
 end
