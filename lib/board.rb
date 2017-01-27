@@ -7,7 +7,7 @@ class Board
   end
 
   def board_place_mark(column, row, input)
-    raise 'Cannot place mark there: already a mark there' if @show[column-1][row-1] != ''
+    raise 'Cannot place mark there: Please place the mark somewhere else' if @show[column-1][row-1] != ''
     @show[column-1][row-1] = input
   end
 
