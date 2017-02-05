@@ -12,7 +12,7 @@ class Game
   def take_turn(column, row)
     determine_input_from_turn
     change_turn
-    @board.board_place_mark(column, row)
+    @board.board_place_mark(column, row, @input)
   end
 
 
@@ -20,8 +20,8 @@ class Game
   private
 
   def determine_input_from_turn
-    if @turn == "#{@player1.name}'s turn" then input = 'X' end
-    if @turn == "#{@player2.name}'s turn" then input = 'O' end
+    if @turn == "#{@player1.name}'s turn" then @input = 'X' end
+    if @turn == "#{@player2.name}'s turn" then @input = 'O' end
   end
 
   def change_turn

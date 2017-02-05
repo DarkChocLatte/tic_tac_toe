@@ -9,11 +9,11 @@ describe "When a game is created" do
   end
 
   it "A player may take a turn" do
-    expect(@game.board.board_place_mark(2,3,'X'))
+    expect(@game.take_turn(2,3))
   end
 
   it "A player may not place a mark on the board where a mark has already been placed" do
-    @game.board.board_place_mark(2,3,'X')
-    expect{@game.board.board_place_mark(2,3,'O')}.to raise_error("Cannot place mark there: Please place the mark somewhere else")
+    @game.take_turn(2,3)
+    expect{@game.take_turn(2,3)}.to raise_error("Cannot place mark there: Please place the mark somewhere else")
   end
 end
