@@ -1,6 +1,7 @@
 require_relative '../lib/game.rb'
 require_relative '../lib/player.rb'
 
+
 describe Game do
 
   let(:player1_class) { double( :Player, new: player1)}
@@ -16,7 +17,8 @@ describe Game do
   let(:board){ double( :board)}
 
   before do
-    allow(player1).to receive(:name).and_return("player who must not be named")
+    allow(player1).to receive(:name).and_return("Joe Kurr")
+    allow(player2).to receive(:name).and_return("Bruce Wayne")
     @game = Game.new(player1_class, player2_class, board_class,cell_class)
   end
 
@@ -28,8 +30,7 @@ describe Game do
     end
 
     it "A new instance of Game is intiated with the turn set to 'player 1's turn'" do
-      allow(player1).to receive(:name).and_return("player who must not be named")
-      expect(@game.turn).to eq("player who must not be named's turn")
+      expect(@game.turn).to eq("Joe Kurr's turn")
     end
 
     it "A new instance of Game is initiated with a board" do
@@ -37,5 +38,15 @@ describe Game do
     end
   end
 
+  describe "#take_turn" do
+    it "take_turn should return the crossed cell" do
+      allow(cell).to receive(:state).and_return('')
+      allow(cell).to receive(:crossed).and_return('X')
+      allow(board).to receive(:board_place_mark).and_return("X")
+      allow(player1).to receive(:turn).and_return("#{player1.name}'s turn")
+      allow(player2).to receive(:turn=).and_return("#{player2.name}'s turn")
+      expect(@game.take_turn(0,3)).to eq("X")
+    end
+  end
 
 end
