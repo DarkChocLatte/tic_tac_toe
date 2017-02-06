@@ -19,8 +19,8 @@ class Game
     determine_input_from_turn
     change_turn
     @board.board_place_mark(row, column, @input)
+    game_over?
   end
-
 
 
   private
@@ -31,7 +31,11 @@ class Game
   end
 
   def change_turn
-    return self.turn = "#{self.player2.name}'s turn" if self.turn == "#{self.player1.name}'s turn" 
+    return self.turn = "#{self.player2.name}'s turn" if self.turn == "#{self.player1.name}'s turn"
     return self.turn = "#{self.player1.name}'s turn" if self.turn == "#{self.player2.name}'s turn"
+  end
+
+  def game_over?
+    return "#{self.player1} is the Winner!" if @judge.is_winner?(@board)
   end
 end

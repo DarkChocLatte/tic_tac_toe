@@ -42,24 +42,5 @@ describe Game do
     end
   end
 
-  describe "#take_turn" do
-    it "take_turn should return the crossed cell" do
-      allow(cell).to receive(:state).and_return('')
-      allow(cell).to receive(:crossed).and_return('X')
-      allow(board).to receive(:board_place_mark).and_return("X")
-      allow(player1).to receive(:turn).and_return("#{player1.name}'s turn")
-      allow(player2).to receive(:turn=).and_return("#{player2.name}'s turn")
-      expect(@game.take_turn(0,3)).to eq("X")
-    end
-
-    it "take_turn should return the not cross the cell if the cell is circled" do
-      allow(cell).to receive(:state).and_return('O')
-      allow(cell).to receive(:crossed).and_return('X')
-      allow(board).to receive(:board_place_mark).and_return("X")
-      allow(player1).to receive(:turn).and_return("#{player1.name}'s turn")
-      allow(player2).to receive(:turn=).and_return("#{player2.name}'s turn")
-      expect(@game.take_turn(0,3)).to eq("X")
-    end
-  end
 
 end

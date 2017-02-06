@@ -24,7 +24,6 @@ describe "When a game is created" do
 
   it "A player should be determined the winner if they get 3 crosses in a row" do
 
-
     @game.take_turn(1,1)
     @game.take_turn(2,1)
 
@@ -32,7 +31,6 @@ describe "When a game is created" do
     @game.take_turn(1,2)
     @game.take_turn(2,2)
 
-    require 'pry'; binding.pry
     expect(@game.take_turn(1,3)).to eq("#{@game.player1} is the Winner!")
   end
 end
