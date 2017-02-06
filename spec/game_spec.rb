@@ -16,10 +16,14 @@ describe Game do
   let(:board_class) { double( :Board, new: board)}
   let(:board){ double( :board)}
 
+  let(:judge_class) { double( :Judge, new: judge)}
+  let(:judge){ double( :judge)}
+
   before do
     allow(player1).to receive(:name).and_return("Joe Kurr")
     allow(player2).to receive(:name).and_return("Bruce Wayne")
-    @game = Game.new(player1_class, player2_class, board_class,cell_class)
+    @game = Game.new(player1_class, player2_class, board_class,cell_class,judge_class)
+    @game.start_game(@game.player1)
   end
 
   describe "#initialize" do
