@@ -22,7 +22,7 @@ describe "When a game is created" do
     expect{@game.take_turn(2,3)}.to raise_error("Cannot place mark there: Please place the mark somewhere else")
   end
 
-  it "A player should be determined the winner if they get 3 crosses in a row" do
+  it "A player should be determined the winner if they get 3 crosses in the first row" do
 
     @game.take_turn(1,1)
     @game.take_turn(2,1)
@@ -31,6 +31,20 @@ describe "When a game is created" do
     @game.take_turn(1,2)
     @game.take_turn(2,2)
 
-    expect(@game.take_turn(1,3)).to eq("#{@game.player1} is the Winner!")
+    expect(@game.take_turn(1,3)).to eq("#{@game.player1.name} is the Winner!")
+  end
+
+  it "A player should be determined the winner if they get 3 circles in the last row" do
+
+    @game.take_turn(1,1)
+    @game.take_turn(2,1)
+
+
+    @game.take_turn(1,2)
+    @game.take_turn(2,2)
+
+    @game.take_turn(3,3)
+
+    expect(@game.take_turn(2,3)).to eq("#{@game.player2.name} is the Winner!")
   end
 end
